@@ -34,13 +34,14 @@
   box-sizing: border-box;
   display: flex;
   flex: 0 0 auto;
-  height: 65px;
+  height: 62px;
   justify-content: space-evenly;
   min-height: 50px;
   position: relative;
   flex-direction: column;
-  width: $theme-sidebar-width;
-  border-radius: 4px;
+  width: calc(#{$theme-sidebar-width} - 8px);
+  margin: 0 4px;
+  border-radius: 14px;
   padding: 0;
 
   @media (prefers-reduced-motion: no-preference) {
@@ -92,7 +93,8 @@
 
   .tab-item__icon {
     height: auto;
-    width: 30px;
+    width: 32px;
+    border-radius: 8px;
   }
 
   .tab-item__message-count {
