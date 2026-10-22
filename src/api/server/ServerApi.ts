@@ -24,6 +24,7 @@ import ServiceModel from '../../models/Service';
 import UserModel from '../../models/User';
 
 import sleep from '../../helpers/async-helpers';
+import { isDiscontinuedRecipe } from '../../helpers/discontinued-recipes';
 
 import { SERVER_NOT_LOADED } from '../../config';
 import { userDataRecipesPath } from '../../environment-remote';
@@ -587,6 +588,7 @@ export default class ServerApi {
 
   _mapRecipePreviewModel(recipes: IRecipePreview[]) {
     return recipes
+      .filter(recipe => !isDiscontinuedRecipe(recipe))
       .map(recipe => {
         try {
           return new RecipePreviewModel(recipe);
